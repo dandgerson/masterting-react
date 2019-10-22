@@ -1,0 +1,38 @@
+// .transition {
+//   &-enter {
+//     opacity: 0;
+//   }
+//   &-enter-active {
+//     opacity: 1;
+//     transition: opacity 600ms;
+//   }
+//   &-exit {
+//     opacity: 1;
+//   }
+//   &-exit-active {
+//     opacity: 0;
+//     transition: opacity 600ms;
+//   }
+// }
+.transition {
+  &-enter {
+    color: white;
+  }
+  &-enter-active {
+    color: #09d3ac;
+    transition: all 1600ms ease-in-out;
+  }
+  &-enter-done {
+    color: #09d3ac;
+  }
+  &-exit {
+    color: #57ceb6;
+  }
+  &-exit-active {
+    color: white;
+    transition: all 1600ms ease-in-out;
+  }
+  &-exit-done {
+    color: white;
+  }
+}
