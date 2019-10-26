@@ -3,7 +3,6 @@ import React from 'react';
 import './App.scss';
 
 import HelloReact from './components/HelloReact'
-import HelloMessage from './components/HelloMessage'
 
 function App() {
   return (
@@ -24,9 +23,6 @@ function App() {
       </header>
       <main className="App-content">
         <HelloReact />
-        <HelloMessage
-          message={'Hello world react message!'}
-        />
       </main>
     </div>
   );
