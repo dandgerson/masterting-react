@@ -24,7 +24,9 @@ function App() {
       </header>
       <main className="App-content">
         <HelloReact />
-        <HelloMessage />
+        <HelloMessage
+          message={'Hello world react message!'}
+        />
       </main>
     </div>
   );

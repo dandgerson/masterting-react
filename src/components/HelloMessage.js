@@ -1,9 +1,9 @@
 import React from 'react'
 
-const HelloMessage = () => (
+const HelloMessage = ({ message }) => (
   <div>
-    <div>Hello React!</div>
-    <div>How are you?</div>
+    <h2>Hello Message:</h2>
+    <div>{message}</div>
   </div>
 )
 
