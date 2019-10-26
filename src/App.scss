@@ -41,3 +41,37 @@ $accent-color: #09d3ac;
 .App-logo {
   height: 40vmin;
 }
+
+.HelloReact {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 100%;
+  & > * {
+    margin-bottom: 10px;
+  }
+  & :last-child {
+    margin-bottom: 0;
+  }
+  &--messageContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  &--messageWrapper {
+    height: 70px;
+  }
+}
+
+
+.TextBox {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  &--formWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+  }
+}

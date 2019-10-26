@@ -11,17 +11,19 @@ const TextBox = ({ label, ...props }) => {
   }
   const edit = () => setEditing(true)
   return (
-    <div>
+    <div className='TextBox'>
       {label}<br />
-      <input
-        type="text"
-        ref={elem => ($messageBox = elem)}
-        disabled={!editing}
-      />
-      <Button onClick={editing ? update : edit}>
-        <Icon title={editing ? 'check': 'pen'}/>
-        {editing ? ' Update' : ' Edit'}
-      </Button>
+      <div className="TextBox--formWrapper">
+        <input
+          type="text"
+          ref={elem => ($messageBox = elem)}
+          disabled={!editing}
+        />
+        <Button onClick={editing ? update : edit}>
+          <Icon title={editing ? 'check': 'pen'}/>
+          {editing ? ' Update' : ' Edit'}
+        </Button>
+      </div>
     </div>
   )
 }
