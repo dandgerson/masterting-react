@@ -1,17 +1,17 @@
 // .transition {
-//   &-enter {
-//     opacity: 0;
+//   transition: all 300ms ease-in-out;
+//   color: white;
+//   &-entering {
+//     color: #09d3ac;
 //   }
-//   &-enter-active {
-//     opacity: 1;
-//     transition: opacity 600ms;
+//   &-entered {
+//     color: #09d3ac;
 //   }
-//   &-exit {
-//     opacity: 1;
+//   &-exiting {
+//     color: white;
 //   }
-//   &-exit-active {
-//     opacity: 0;
-//     transition: opacity 600ms;
+//   &-exited {
+//     color: white;
 //   }
 // }
 .transition {
