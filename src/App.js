@@ -4,7 +4,7 @@ import './App.scss';
 
 import HelloReact from './components/HelloReact'
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">

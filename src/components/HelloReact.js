@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import ReactDOM from 'react-dom'
 
+import App from '../App'
 import HelloMessage from './HelloMessage'
 import TextBox from './TextBox'
 import Button from './Button'
@@ -24,6 +26,13 @@ const HelloReact = () => {
       }
     }
     const toggleShowMessage = () => setShowMessage(!showMessage)
+    const reload = () => {
+      ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+      ReactDOM.render(
+        <App reload={reload}/>,
+        document.getElementById('root')
+      )
+    }
     const message = `Hello${firstName ? ' ' + firstName: ''}${lastName ? ' ' + lastName: ''}!`
   return (
     <div className='HelloReact'>
@@ -44,6 +53,9 @@ const HelloReact = () => {
         label='Last Name'
         update={update.bind(null, 'lastName')}
       />
+      <Button onClick={reload}>
+          <Icon title='redo-alt'/>{' Reload'}
+        </Button>
     </div>
   )
 }

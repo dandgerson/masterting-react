@@ -7,7 +7,8 @@ import {
   faPen,
   faEye,
   faEyeSlash,
- } from '@fortawesome/free-solid-svg-icons'
+  faRedoAlt,
+} from '@fortawesome/free-solid-svg-icons'
 
 library.add(
   faEdit,
@@ -15,6 +16,7 @@ library.add(
   faPen,
   faEye,
   faEyeSlash,
+  faRedoAlt,
 )
 
 const Icon = ({ title }) => <FontAwesomeIcon icon={title} />
