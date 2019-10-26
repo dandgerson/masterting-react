@@ -8,6 +8,10 @@ import {
   faEye,
   faEyeSlash,
   faRedoAlt,
+  faThumbsUp,
+  faThumbsDown,
+  faChevronCircleUp,
+  faChevronCircleDown,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -17,6 +21,10 @@ library.add(
   faEye,
   faEyeSlash,
   faRedoAlt,
+  faThumbsUp,
+  faThumbsDown,
+  faChevronCircleUp,
+  faChevronCircleDown,
 )
 
 const Icon = ({ title }) => <FontAwesomeIcon icon={title} />

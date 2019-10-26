@@ -1,10 +1,22 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
+
 // import logo from './logo.svg';
 import './App.scss';
 
 import HelloReact from './components/HelloReact'
+import LikeCounter from './components/LikeCounter'
+import Button from './components/Button'
+import Icon from './components/Icon'
 
 function App(props) {
+  const reload = () => {
+    ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+    ReactDOM.render(
+      <App reload={reload}/>,
+      document.getElementById('root')
+    )
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -21,9 +33,15 @@ function App(props) {
           Mastering ReactJS
         </a>
       </header>
-      <main className="App-content">
+      <main className="App-main">
+        <LikeCounter />
         <HelloReact />
       </main>
+      <footer>
+        <Button onClick={reload}>
+          <Icon title='redo-alt'/>{' Reload'}
+        </Button>
+      </footer>
     </div>
   );
 }
