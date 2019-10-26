@@ -18,12 +18,7 @@ const TextBox = ({ label, ...props }) => {
         ref={elem => ($messageBox = elem)}
         disabled={!editing}
       />
-      <Button
-        onClick={editing ? update : edit}
-        style={{
-          cursor: 'pointer',
-        }}
-      >
+      <Button onClick={editing ? update : edit}>
         <Icon title={editing ? 'check': 'pen'}/>
         {editing ? ' Update' : ' Edit'}
       </Button>
