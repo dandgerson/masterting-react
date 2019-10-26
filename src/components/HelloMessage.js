@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const HelloMessage = ({ message }) => {
   const localprops = message
@@ -14,3 +15,7 @@ const HelloMessage = ({ message }) => {
 }
 
 export default HelloMessage
+
+HelloMessage.propTypes = {
+  message: PropTypes.string.isRequired,
+}
