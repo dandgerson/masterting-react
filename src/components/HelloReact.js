@@ -11,13 +11,24 @@ const HelloReact = () => {
   }
   return (
     <div>
+      <h1>
+        <HelloMessage message='Hello React!' />
+      </h1>
       <input
         type="text"
-        onChange={updateMessage}
         ref={elem => ($input = elem)}
         />
-      <h1>Hello React!</h1>
-      <HelloMessage message={state.message} />
+      <button
+        onClick={updateMessage}>
+        Update
+      </button>
+      <div
+        style={{
+          paddingTop: '20px',
+          fontSize: '1.5rem',
+          color: 'powderblue',
+        }}
+      >{state.message}</div>
     </div>
   )
 }
