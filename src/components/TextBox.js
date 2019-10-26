@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-const TextBox = ({ label, ...props}) => {
+const TextBox = ({ label, ...props }) => {
   const [ editing, setEditing ] = useState(false)
   let $messageBox = null
   const update = () => {
@@ -19,7 +21,7 @@ const TextBox = ({ label, ...props}) => {
       <button
         type='button'
         onClick={editing ? update : edit}>
-        {editing ? 'Update' : 'Edit'}
+        <FontAwesomeIcon icon={faCoffee} />{editing ? 'Update' : 'Edit'}
       </button>
     </div>
   )
