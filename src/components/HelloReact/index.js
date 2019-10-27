@@ -11,6 +11,7 @@ const HelloReact = () => {
   const [ firstName, setFirstName ] = useState('')
   const [ lastName, setLastName ] = useState('')
   const [ showMessage, setShowMessage ] = useState(true)
+
   const update = (state, value) => {
     console.log('update')
     switch (state) {

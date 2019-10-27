@@ -6,16 +6,16 @@ import Icon from '../Icon'
 import './LikeCounter.scss'
 
 const LikeCounter = (props) => {
-  const [ counter, setCounter ] = useState(0)
+  const [ likes, setLikes ] = useState(0)
   const [ rateUp, setRateUp ] = useState(null)
   const like = () => {
     console.log('Like!')
-    setCounter(counter + 1)
+    setLikes(likes + 1)
     setRateUp(true)
   }
   const dislike = () => {
     console.log('Dislike!')
-    setCounter(counter - 1)
+    setLikes(likes - 1)
     setRateUp(false)
   }
 
@@ -34,7 +34,7 @@ const LikeCounter = (props) => {
   return (
     <div className="LikeCounter">
       <div>
-        {`Likes: ${counter} `}
+        {`Likes: ${likes} `}
         {RateUpDownIcon}
       </div>
       <div className="controls">

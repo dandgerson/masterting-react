@@ -9,15 +9,15 @@ const HelloMessage = ({ message }) => {
     }
   }, [])
   useEffect(() => {
-    console.log('hooked ComponentDidRender')
-    return () => {
-      console.log('hooked ComponentWillRender')
-    }
-  })
-  useEffect(() => {
     console.log('hooked ComponentDidUpdate')
     return () => {
       console.log('hooked ComponentWillUpdate')
+    }
+  })
+  useEffect(() => {
+    console.log('hooked ComponentDidReceiveProps', message)
+    return () => {
+      console.log('hooked ComponentWillReceiveProps', message)
     }
   }, [message])
   return (

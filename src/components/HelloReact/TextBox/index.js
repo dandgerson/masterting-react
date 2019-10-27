@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import Icon from '../../Icon'
 import Button from '../../Button'
@@ -7,19 +7,24 @@ import './TextBox.scss'
 
 const TextBox = ({ label, ...props }) => {
   const [ editing, setEditing ] = useState(false)
-  let $messageBox = null
+  const $messageBox = useRef()
   const update = () => {
-    props.update($messageBox.value)
     setEditing(false)
+    props.update($messageBox.current.value)
   }
-  const edit = () => setEditing(true)
+  const edit = () => {
+    setEditing(true)
+  }
+  useEffect(() => {
+    $messageBox.current.focus()
+  })
   return (
     <div className='TextBox'>
       {label}<br />
       <div className="TextBox--formWrapper">
         <input
           type="text"
-          ref={elem => ($messageBox = elem)}
+          ref={$messageBox}
           disabled={!editing}
         />
         <Button onClick={editing ? update : edit}>
