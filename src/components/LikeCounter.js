@@ -4,20 +4,36 @@ import Button from './Button'
 import Icon from './Icon'
 
 const LikeCounter = (props) => {
-  const [counter, setCounter] = useState(0)
+  const [ counter, setCounter ] = useState(0)
+  const [ rateUp, setRateUp ] = useState(null)
   const like = () => {
     console.log('Like!')
     setCounter(counter + 1)
+    setRateUp(true)
   }
   const dislike = () => {
     console.log('Dislike!')
     setCounter(counter - 1)
+    setRateUp(false)
+  }
+
+  let RateUpDownIcon = null
+  switch(rateUp) {
+    case false: {
+      RateUpDownIcon = <Icon title='chevron-circle-down'/>
+      break
+    }
+    case true: {
+      RateUpDownIcon = <Icon title='chevron-circle-up'/>
+      break
+    }
+    default: RateUpDownIcon = null
   }
   return (
     <div className="LikeCounter">
       <div>
         {`Likes: ${counter} `}
-        {counter !== 0 && <Icon title={counter > 0 ? 'chevron-circle-up' : 'chevron-circle-down'} />}
+        {RateUpDownIcon}
       </div>
       <div className="controls">
         <Button
