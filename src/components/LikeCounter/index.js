@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Button from '../Button'
 import Icon from '../Icon'
@@ -7,18 +7,20 @@ import './LikeCounter.scss'
 
 const LikeCounter = (props) => {
   const [ likes, setLikes ] = useState(0)
+  const [ showedLikes, setShowedLikes ] = useState(0)
   const [ rateUp, setRateUp ] = useState(null)
+  useEffect(() => {
+    likes > 1 && setShowedLikes(likes)
+  }, [likes])
+  
   const like = () => {
-    console.log('Like!')
     setLikes(likes + 1)
-    setRateUp(true)
+    ;(likes + 1) > 1 && setRateUp(true)
   }
   const dislike = () => {
-    console.log('Dislike!')
     setLikes(likes - 1)
-    setRateUp(false)
+    showedLikes > 2 && setRateUp(false)
   }
-
   let RateUpDownIcon = null
   switch(rateUp) {
     case false: {
@@ -34,7 +36,7 @@ const LikeCounter = (props) => {
   return (
     <div className="LikeCounter">
       <div>
-        {`Likes: ${likes} `}
+        {`Likes: ${showedLikes} `}
         {RateUpDownIcon}
       </div>
       <div className="controls">

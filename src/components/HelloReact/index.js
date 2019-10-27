@@ -24,10 +24,12 @@ const HelloReact = () => {
         break;
       }
       default: console.error('Incorrect state type') 
-      }
     }
-    const toggleShowMessage = () => setShowMessage(!showMessage)
-    const message = `Hello${firstName ? ' ' + firstName: ''}${lastName ? ' ' + lastName: ''}!`
+  }
+
+  const toggleShowMessage = () => setShowMessage(!showMessage)
+  const message = `Hello${firstName ? ' ' + firstName: ''}${lastName ? ' ' + lastName: ''}!`
+
   return (
     <div className='HelloReact'>
       <div className='HelloReact--messageContainer'>
