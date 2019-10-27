@@ -38,40 +38,6 @@ $accent-color: #09d3ac;
   height: 40vmin;
 }
 
-.LikeCounter {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
 
-.HelloReact {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  width: 100%;
-  & > * {
-    margin-bottom: 10px;
-  }
-  &--messageContainer {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-  &--messageWrapper {
-    height: 70px;
-  }
-}
 
-.TextBox {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  &--formWrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-  }
-}
+

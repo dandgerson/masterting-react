@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 
 import HelloMessage from './HelloMessage'
 import TextBox from './TextBox'
-import Button from './Button'
-import Icon from './Icon'
+import Button from '../Button'
+import Icon from '../Icon'
+
+import './HelloReact.scss'
 
 const HelloReact = () => {
   const [ firstName, setFirstName ] = useState('')

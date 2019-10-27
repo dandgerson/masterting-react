@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import Icon from './Icon'
-import Button from './Button'
+
+import Icon from '../../Icon'
+import Button from '../../Button'
+
+import './TextBox.scss'
 
 const TextBox = ({ label, ...props }) => {
   const [ editing, setEditing ] = useState(false)

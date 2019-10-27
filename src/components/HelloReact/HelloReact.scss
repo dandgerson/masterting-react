@@ -1,0 +1,17 @@
+.HelloReact {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  & > * {
+    margin-bottom: 10px;
+  }
+  &--messageContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  &--messageWrapper {
+    height: 70px;
+  }
+}

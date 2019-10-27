@@ -4,16 +4,16 @@ import ReactDOM from 'react-dom'
 // import logo from './logo.svg';
 import './App.scss';
 
-import HelloReact from './components/HelloReact'
-import LikeCounter from './components/LikeCounter'
+import HelloReact from './components/HelloReact/index'
+import LikeCounter from './components/LikeCounter/index'
 import Button from './components/Button'
 import Icon from './components/Icon'
 
-function App(props) {
+function App() {
   const reload = () => {
     ReactDOM.unmountComponentAtNode(document.getElementById('root'))
     ReactDOM.render(
-      <App reload={reload}/>,
+      <App />,
       document.getElementById('root')
     )
   }

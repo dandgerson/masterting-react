@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 
-import Button from './Button'
-import Icon from './Icon'
+import Button from '../Button'
+import Icon from '../Icon'
+
+import './LikeCounter.scss'
 
 const LikeCounter = (props) => {
   const [ counter, setCounter ] = useState(0)
