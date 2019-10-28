@@ -6,10 +6,11 @@ import './App.scss';
 
 import HelloReact from './components/HelloReact/index'
 import LikeCounter from './components/LikeCounter/index'
+import UserList from './components/UserList/index'
 import Button from './components/Button'
 import Icon from './components/Icon'
 
-function App() {
+const App = () => {
   const reload = () => {
     ReactDOM.unmountComponentAtNode(document.getElementById('root'))
     ReactDOM.render(
@@ -34,8 +35,18 @@ function App() {
         </a>
       </header>
       <main className="App-main">
-        <LikeCounter />
-        <HelloReact />
+        <div className="row">
+          <div className="col">
+            <LikeCounter />
+          </div>
+          <div className="col">
+            <HelloReact />
+          </div>
+        </div>
+        <div className="row">
+          <UserList />
+        </div>
+
       </main>
       <footer>
         <Button onClick={reload}>

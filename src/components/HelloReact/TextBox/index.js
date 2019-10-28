@@ -7,16 +7,16 @@ import './TextBox.scss'
 
 const TextBox = ({ label, ...props }) => {
   const [ editing, setEditing ] = useState(false)
-  const $messageBox = useRef()
+  const messageBoxRef = useRef()
   const update = () => {
     setEditing(false)
-    props.update($messageBox.current.value)
+    props.update(messageBoxRef.current.value)
   }
   const edit = () => {
     setEditing(true)
   }
   useEffect(() => {
-    $messageBox.current.focus()
+    messageBoxRef.current.focus()
   })
   return (
     <div className='TextBox'>
@@ -24,7 +24,7 @@ const TextBox = ({ label, ...props }) => {
       <div className="TextBox--formWrapper">
         <input
           type="text"
-          ref={$messageBox}
+          ref={messageBoxRef}
           disabled={!editing}
         />
         <Button onClick={editing ? update : edit}>
