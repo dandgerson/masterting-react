@@ -1,23 +1,38 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { connect } from 'react-redux'
+
+import { setEditingAction } from '../../../redux/actions'
 
 import Icon from '../../Icon'
 import Button from '../../Button'
 
 import './TextBox.scss'
 
-const TextBox = ({ label, ...props }) => {
-  const [ editing, setEditing ] = useState(false)
+const TextBox = ({
+  id,
+  label,
+  textBoxsEditStatus, setEditingAction,
+  ...props
+}) => {
   const messageBoxRef = useRef()
   const update = () => {
-    setEditing(false)
+    setEditingAction({
+      id,
+      editing: false,
+    })
     props.update(messageBoxRef.current.value)
   }
   const edit = () => {
-    setEditing(true)
+    setEditingAction({
+      id,
+      editing: true,
+    })
   }
   useEffect(() => {
     messageBoxRef.current.focus()
   })
+
+  const { editing } = textBoxsEditStatus.filter(item => item.id === id)[0]
   return (
     <div className='TextBox'>
       {label}<br />
@@ -35,5 +50,12 @@ const TextBox = ({ label, ...props }) => {
     </div>
   )
 }
+const mapStateToProps = state => ({
+  textBoxsEditStatus: state.TextBoxReducer,
+})
 
-export default TextBox
+const mapDispatchToProps = {
+  setEditingAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TextBox)

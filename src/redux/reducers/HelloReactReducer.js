@@ -6,7 +6,16 @@ import {
 } from '../constants/action-types'
 
 export default (state = {
-  editing: false,
+  textBoxsEditStatus: [
+    {
+      id: 0,
+      editing: false,
+    },
+    {
+      id: 1,
+      editing: false,
+    },
+  ],
   firstName: '',
   lastName: '',
   showMessage: true,

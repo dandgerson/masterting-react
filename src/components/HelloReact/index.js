@@ -42,10 +42,12 @@ const HelloReact = () => {
         </Button>
       </div>
       <TextBox
+        id={0}
         label='First Name'
         update={update.bind(null, 'firstName')}
       />
       <TextBox
+        id={1}
         label='Last Name'
         update={update.bind(null, 'lastName')}
       />
