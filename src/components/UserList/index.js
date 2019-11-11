@@ -1,20 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 
 import UserRow from './UserRow'
 
-const UserList = (props) => {
-  const [ users, setUsers ] = useState([
-    {
-      id: 1,
-      userName: 'RiyanVice',
-      email: 'ryan@vicesoftware.com',
-    },
-    {
-      id: 2,
-      userName: 'AdamHorton',
-      email: 'digitalicarus@gmail.com',
-    },
-  ])
+const UserList = ({
+  users,
+  ...props
+}) => {
   const userRows = users.map(user => (
     <UserRow
       key={user.id}
@@ -36,4 +28,8 @@ const UserList = (props) => {
   )
 }
 
-export default UserList
+const mapStateToProps = state => ({
+  users: state.UserListReducer
+})
+
+export default connect(mapStateToProps)(UserList)
