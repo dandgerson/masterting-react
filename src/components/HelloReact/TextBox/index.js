@@ -11,7 +11,7 @@ import './TextBox.scss'
 const TextBox = ({
   id,
   label,
-  textBoxsEditStatus, setEditingAction,
+  textBoxReducer, setEditingAction,
   ...props
 }) => {
   const messageBoxRef = useRef()
@@ -32,7 +32,7 @@ const TextBox = ({
     messageBoxRef.current.focus()
   })
 
-  const { editing } = textBoxsEditStatus.filter(item => item.id === id)[0]
+  const { editing } = textBoxReducer.filter(item => item.id === id)[0]
   return (
     <div className='TextBox'>
       {label}<br />
@@ -51,7 +51,7 @@ const TextBox = ({
   )
 }
 const mapStateToProps = state => ({
-  textBoxsEditStatus: state.TextBoxReducer,
+  textBoxReducer: state.TextBoxReducer,
 })
 
 const mapDispatchToProps = {

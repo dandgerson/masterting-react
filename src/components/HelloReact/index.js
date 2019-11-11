@@ -1,4 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+
+import {
+  setFirstNameAction,
+  setLastNameAction,
+  setShowMessageAction,
+} from '../../redux/actions'
 
 import HelloMessage from './HelloMessage'
 import TextBox from './TextBox'
@@ -7,27 +14,31 @@ import Icon from '../Icon'
 
 import './HelloReact.scss'
 
-const HelloReact = () => {
-  const [ firstName, setFirstName ] = useState('')
-  const [ lastName, setLastName ] = useState('')
-  const [ showMessage, setShowMessage ] = useState(true)
-
+const HelloReact = ({
+  firstName,
+  lastName,
+  showMessage,
+  setFirstNameAction,
+  setLastNameAction,
+  setShowMessageAction,
+  ...props
+}) => {
   const update = (state, value) => {
     console.log('update')
     switch (state) {
       case 'firstName': {
-        setFirstName(value)
+        setFirstNameAction({ firstName: value })
         break;
       }
       case 'lastName': {
-        setLastName(value)
+        setLastNameAction({ lastName: value })
         break;
       }
       default: console.error('Incorrect state type') 
     }
   }
 
-  const toggleShowMessage = () => setShowMessage(!showMessage)
+  const toggleShowMessage = () => setShowMessageAction({ showMessage: !showMessage })
   const message = `Hello${firstName ? ' ' + firstName: ''}${lastName ? ' ' + lastName: ''}!`
 
   return (
@@ -55,4 +66,16 @@ const HelloReact = () => {
   )
 }
 
-export default HelloReact
+const mapStateToProps = state => ({
+  firstName: state.HelloReactReducer.firstName,
+  lastName: state.HelloReactReducer.lastName,
+  showMessage: state.HelloReactReducer.showMessage,
+})
+
+const mapDispatchToProps = {
+  setFirstNameAction,
+  setLastNameAction,
+  setShowMessageAction,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HelloReact)

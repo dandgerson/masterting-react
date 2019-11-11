@@ -1,5 +1,12 @@
 import { createStore } from 'redux'
-import rootReducer from '../reducers'
+import { RESET } from '../constants/action-types'
+
+import appReducer from '../reducers'
+
+const rootReducer = (state, action) => {
+  if (action.type === RESET) state = undefined
+  return appReducer(state, action)
+}
 
 const store = createStore(
   rootReducer,

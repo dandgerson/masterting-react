@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
 
 import HelloReactReducer from './HelloReactReducer'
-import LikeCounerReducer from './LikeCounterReducer'
+import LikeCounterReducer from './LikeCounterReducer'
 import UserListReducer from './UserListReducer'
 import TextBoxReducer from './TextBoxReducer'
 
 export default combineReducers({
   HelloReactReducer,
-  LikeCounerReducer,
+  LikeCounterReducer,
   UserListReducer,
   TextBoxReducer,
 })

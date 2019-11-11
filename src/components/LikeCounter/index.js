@@ -1,26 +1,34 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+
+import {
+  setLikesAction,
+  setShowedLikesAction,
+  setRateUpAction,
+} from '../../redux/actions'
 
 import Button from '../Button'
 import Icon from '../Icon'
 
 import './LikeCounter.scss'
 
-const LikeCounter = (props) => {
-  const [ likes, setLikes ] = useState(0)
-  const [ showedLikes, setShowedLikes ] = useState(0)
-  const [ rateUp, setRateUp ] = useState(null)
-
+const LikeCounter = ({
+  likes, setLikesAction,
+  showedLikes, setShowedLikesAction,
+  rateUp, setRateUpAction,
+  ...props
+}) => {
   useEffect(() => {
-    likes > 1 && setShowedLikes(likes)
-  }, [likes])
+    likes > 1 && setShowedLikesAction({ showedLikes: likes })
+  }, [likes, setShowedLikesAction])
 
   const like = () => {
-    setLikes(likes + 1)
-    ;(likes + 1) > 1 && setRateUp(true)
+    setLikesAction({ likes: likes + 1 })
+    ;(likes + 1) > 1 && setRateUpAction({ rateUp: true })
   }
   const dislike = () => {
-    setLikes(likes - 1)
-    showedLikes > 2 && setRateUp(false)
+    setLikesAction({ likes: likes - 1})
+    showedLikes > 2 && setRateUpAction({ rateUp: false })
   }
 
   let RateUpDownIcon = null
@@ -35,6 +43,12 @@ const LikeCounter = (props) => {
     }
     default: RateUpDownIcon = null
   }
+
+  console.log({
+    likes,
+    showedLikes,
+    rateUp,
+  })
 
   return (
     <div className="LikeCounter">
@@ -56,4 +70,16 @@ const LikeCounter = (props) => {
   )
 }
 
-export default LikeCounter
+const mapStateToProps = state => ({
+  likes: state.LikeCounterReducer.likes,
+  showedLikes: state.LikeCounterReducer.showedLikes,
+  rateUp: state.LikeCounterReducer.rateUp,
+})
+
+const mapDispatchToProps = {
+  setLikesAction,
+  setShowedLikesAction,
+  setRateUpAction,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LikeCounter)

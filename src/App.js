@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 
 import store from './redux/store'
-// import logo from './logo.svg';
+import { resetAction } from './redux/actions'
+
 import './App.scss';
 
 import HelloReact from './components/HelloReact/index'
@@ -12,8 +13,12 @@ import UserList from './components/UserList/index'
 import Button from './components/Button'
 import Icon from './components/Icon'
 
-const App = () => {
+const App = ({
+  resetAction,
+  ...props
+}) => {
   const reload = () => {
+    resetAction && resetAction(undefined)
     ReactDOM.unmountComponentAtNode(document.getElementById('root'))
     ReactDOM.render(
       <Provider store={store}>
@@ -61,4 +66,8 @@ const App = () => {
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  resetAction,
+}
+
+export default connect(null, mapDispatchToProps)(App);

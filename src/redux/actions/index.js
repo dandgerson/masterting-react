@@ -7,6 +7,7 @@ import {
   SET_SHOWED_LIKES,
   SET_RATE_UP,
   SET_USERS,
+  RESET,
 } from '../constants/action-types'
 
 export const setEditingAction = editing => ({
@@ -43,6 +44,10 @@ export const setRateUpAction = reteUp => ({
 export const setUsersAction = users => ({
   type: SET_USERS,
   payload: users
+})
+
+export const resetAction = () => ({
+  type: RESET,
 })
 
 
