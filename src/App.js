@@ -13,6 +13,9 @@ import UserList from './components/UserList/index'
 import Button from './components/Button'
 import Icon from './components/Icon'
 
+// Почему это срабатывает лишь один первый раз?
+// https://stackoverflow.com/questions/35622588/how-to-reset-the-state-of-a-redux-store
+
 const App = ({
   resetAction,
   ...props
