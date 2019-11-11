@@ -1,0 +1,8 @@
+export const SET_EDITING = 'SET_EDITING'
+export const SET_FIRSTNAME = 'SET_FIRSTNAME'
+export const SET_LASTNAME = 'SET_LASTNAME'
+export const SET_SHOW_MESSAGE = 'SET_SHOW_MESSAGE'
+export const SET_LIKES = 'SET_LIKES'
+export const SET_SHOWED_LIKES = 'SET_SHOWED_LIKES'
+export const SET_RATE_UP = 'SET_RATE_UP'
+export const SET_USERS = 'SET_USERS'
