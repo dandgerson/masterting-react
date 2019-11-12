@@ -1,8 +1,9 @@
 import {
   SET_USERS,
+  RESET,
 } from '../constants/action-types'
 
-export default (state = [
+const initialState = [
   {
     id: 1,
     userName: 'RiyanVice',
@@ -13,7 +14,9 @@ export default (state = [
     userName: 'AdamHorton',
     email: 'digitalicarus@gmail.com',
   },
-],
+]
+
+export default (state = initialState,
   action) => {
   switch (action.type) {
     case SET_USERS: {
@@ -21,7 +24,9 @@ export default (state = [
         ...state,
         ...action.payload,
       ]
-
+    }
+    case RESET: {
+      return initialState
     }
     default:
       return state

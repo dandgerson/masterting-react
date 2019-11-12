@@ -2,13 +2,16 @@ import {
   SET_FIRSTNAME,
   SET_LASTNAME,
   SET_SHOW_MESSAGE,
+  RESET,
 } from '../constants/action-types'
 
-export default (state = {
+const initialState = {
   firstName: '',
   lastName: '',
   showMessage: true,
-}, action) => {
+}
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case SET_FIRSTNAME: {
       return {
@@ -27,6 +30,9 @@ export default (state = {
         ...state,
         ...action.payload,
       }
+    }
+    case RESET: {
+      return initialState
     }
     default:
       return state

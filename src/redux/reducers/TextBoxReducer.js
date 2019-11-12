@@ -1,8 +1,9 @@
 import {
   SET_EDITING,
+  RESET,
 } from '../constants/action-types'
 
-export default (state = [
+const initialState = [
   {
     id: 0,
     editing: false,
@@ -11,7 +12,9 @@ export default (state = [
     id: 1,
     editing: false,
   },
-],
+]
+
+export default (state = initialState,
   action) => {
   switch (action.type) {
     case SET_EDITING: {
@@ -19,6 +22,9 @@ export default (state = [
         ...state.filter(item => item.id !== action.payload.id),
         action.payload,
       ]
+    }
+    case RESET: {
+      return initialState
     }
     default:
       return state

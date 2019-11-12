@@ -1,8 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
-import { Provider, connect } from 'react-redux'
+// import ReactDOM from 'react-dom'
+import {
+  // Provider,
+  connect,
+} from 'react-redux'
 
-import store from './redux/store'
+// import store from './redux/store'
 import { resetAction } from './redux/actions'
 
 import './App.scss';
@@ -21,14 +24,14 @@ const App = ({
   ...props
 }) => {
   const reload = () => {
-    resetAction && resetAction(undefined)
-    ReactDOM.unmountComponentAtNode(document.getElementById('root'))
-    ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      document.getElementById('root')
-    )
+    resetAction()
+    // ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+    // ReactDOM.render(
+    //   <Provider store={store}>
+    //     <App />
+    //   </Provider>,
+    //   document.getElementById('root')
+    // )
   }
   return (
     <div className="App">

@@ -2,13 +2,16 @@ import {
   SET_LIKES,
   SET_SHOWED_LIKES,
   SET_RATE_UP,
+  RESET,
 } from '../constants/action-types'
 
-export default (state = {
+const initialState = {
   likes : 0,
   showedLikes: 0,
   rateUp: null,
-}, action) => {
+}
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case SET_LIKES: {
       return {
@@ -27,6 +30,9 @@ export default (state = {
         ...state,
         ...action.payload,
       }
+    }
+    case RESET: {
+      return initialState
     }
     default:
       return state
